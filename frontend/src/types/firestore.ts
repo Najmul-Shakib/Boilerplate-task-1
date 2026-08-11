@@ -1,41 +1,33 @@
 import type { Timestamp } from 'firebase/firestore'
 
 /**
- * Firestore collection type definitions.
- *
- * Keep in sync with:
+ * Firestore type definitions.
+ * 
+ * These types must stay in sync with:
  *   - src/lib/firebase/firestore.ts  (typed collection exports)
  *   - firebase/firestore.rules       (security rules)
  *   - docs/FIRESTORE-SCHEMA.md       (schema documentation)
-<<<<<<< HEAD
-=======
  *
  * When adding a new collection, use the /firebase-collection skill.
->>>>>>> 3890169b19b591d0eb35233a9992870935896428
  */
 
 export interface UserProfile {
   uid: string
   email: string
-  displayName: string | null
-  photoURL: string | null
-  role: 'user'
-  createdAt: Timestamp
-  updatedAt: Timestamp
-  _schemaVersion: 1
+  displayName?: string
+  photoURL?: string
+  createdAt: Timestamp | string
+  updatedAt: Timestamp | string
 }
 
 export type CreateUserProfileInput = Omit<UserProfile, 'createdAt' | 'updatedAt'>
-<<<<<<< HEAD
 
 export interface Note {
   id: string
-  uid: string // owner's user id — used by security rules
   title: string
-  body: string
-  createdAt: Timestamp
-  updatedAt: Timestamp
+  content: string
+  userId: string
+  createdAt: Timestamp | string
+  updatedAt: Timestamp | string
   _schemaVersion: 1
 }
-=======
->>>>>>> 3890169b19b591d0eb35233a9992870935896428
