@@ -132,15 +132,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   return (
     <AuthContext.Provider
-      value={{
-        user,
-        profile,
-        loading,
-        signInWithEmail,
-        signUpWithEmail,
-        signInWithGoogle,
-        signOut,
-      }}
+     value={{
+      user,
+      profile,
+      loading,
+      email: user?.email ?? undefined,        // Add this
+      displayName: user?.displayName ?? undefined, // Add this
+      signInWithEmail,
+      signUpWithEmail,
+      signInWithGoogle,
+      signOut,
+    }}
     >
       {children}
     </AuthContext.Provider>
