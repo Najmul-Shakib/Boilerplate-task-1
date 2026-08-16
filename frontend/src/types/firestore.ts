@@ -26,6 +26,7 @@ export interface Note {
   id: string
   title: string
   content: string
+  body: string
   userId: string
   createdAt: Timestamp | string
   updatedAt: Timestamp | string
