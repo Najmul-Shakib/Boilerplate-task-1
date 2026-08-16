@@ -131,22 +131,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <AuthContext.Provider
-     value={{
+  <AuthContext.Provider
+    value={{
       user,
       profile,
       loading,
-      email: user?.email ?? undefined,        // Add this
-      displayName: user?.displayName ?? undefined, // Add this
+      email: user?.email || undefined,        // Fixed - converts null to undefined
+      displayName: user?.displayName || undefined, // Fixed - converts null to undefined
       signInWithEmail,
       signUpWithEmail,
       signInWithGoogle,
       signOut,
     }}
-    >
-      {children}
-    </AuthContext.Provider>
-  )
+  >
+    {children}
+  </AuthContext.Provider>
+)
 }
 
 export function useAuthContext(): AuthContextValue {
