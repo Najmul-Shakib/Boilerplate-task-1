@@ -136,8 +136,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       user,
       profile,
       loading,
-      email: user?.email || undefined,        // Fixed - converts null to undefined
-      displayName: user?.displayName || undefined, // Fixed - converts null to undefined
       signInWithEmail,
       signUpWithEmail,
       signInWithGoogle,
